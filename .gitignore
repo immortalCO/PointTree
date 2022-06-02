@@ -1,3 +1,11 @@
+datasets/
+
+*.txt
+scratch*/
+
+!scratch_extra/train_split.pth
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
