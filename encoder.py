@@ -447,8 +447,6 @@ class AlignWithEncoder(torch.nn.Module):
         self.pts = pts
         return pts
 
-
-
 class EncoderKdtAlign(torch.nn.Module):
     def __init__(self, *args, num_layers=1, **kwargs):
         super().__init__()
