@@ -1,0 +1,1 @@
+The C++ tree builder is implemented with [ALGLIB](https://www.alglib.net/).
