@@ -629,7 +629,7 @@ def dynamic_arrange(pts, ind=True, pca=False, device='cuda'):
             axis = pts.var(dim=-2).argmax(dim=-1)
             val = pts.gather(dim=-1, index=axis[:, :, None, None].expand(-1, -1, sub, dim))[:, :, :, 0]
 
-        topk = (val.topk(sub // 2, dim=-1).indices + 1).to_sparse_coo()
+        topk = (val.topk(sub // 2, dim=-1, sorted=False).indices + 1).to_sparse_coo()
         mask = torch.sparse_coo_tensor(indices=torch.cat([topk.indices()[:2], topk.values()[None, :] - 1], dim=0), 
                         values=torch.ones(batch * node * sub // 2, dtype=torch.bool, device=device), size=(batch, node, sub)).to_dense()
 
